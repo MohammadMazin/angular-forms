@@ -1,0 +1,28 @@
+<form [formGroup]="form" (ngSubmit)="submitForm()">
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" id="name" formControlName="name">
+    <div *ngIf="form.controls.name.invalid && (form.controls.name.dirty || form.controls.name.touched)">
+      <div class="error" *ngIf="form.controls.name.errors?.required">Name is required.</div>
+    </div>
+  </div>
+
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" formControlName="email">
+    <div *ngIf="form.controls.email.invalid && (form.controls.email.dirty || form.controls.email.touched)">
+      <div class="error" *ngIf="form.controls.email.errors?.required">Email is required.</div>
+      <div class="error" *ngIf="form.controls.email.errors?.email">Please enter a valid email address.</div>
+    </div>
+  </div>
+
+  <div>
+    <label for="phone">phone:</label>
+    <input type="text" id="phone" formControlName="phone">
+    <div *ngIf="form.controls.phone.invalid && (form.controls.phone.dirty || form.controls.phone.touched)">
+      <div class="error" *ngIf="form.controls.phone.errors?.required">phone is required.</div>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="form.invalid">Submit</button>
+</form>

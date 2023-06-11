@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="buttons">
+    <button (click)="showReactiveFormComponent()">Reactive Form</button>
+    <button (click)="showTemplateFormComponent()">Template Form</button>
+  </div>
+  <div [@slide]="slideState">
+    <ng-container *ngComponentOutlet="currentComponent"></ng-container>
+  </div>
+</div>

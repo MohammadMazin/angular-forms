@@ -1,0 +1,70 @@
+<form (ngSubmit)="submitForm(f)" #f="ngForm">
+  <div>
+    <div>
+      <label for="name">Name:</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+        [(ngModel)]="name"
+        #nameInput="ngModel"
+      />
+      <div
+        *ngIf="
+          f.controls['name'].invalid &&
+          (f.controls['name'].dirty || f.controls['name'].touched)
+        "
+      >
+        <div class="error" *ngIf="f.controls['name'].errors?.required">
+          Please enter username
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <label for="email">Email</label>
+    <input
+      type="text"
+      class="form-control"
+      id="email"
+      name="email"
+      [(ngModel)]="email"
+      #emailInput="ngModel"
+      required
+      placeholder="cakeman@cake.com"
+    />
+    <div *ngIf="f.controls['email'].invalid && (f.controls['email'].dirty || f.controls['email'].touched)">
+      <div class="error" *ngIf="f.controls['email'].errors?.required">Email is required.</div>
+      <div class="error" *ngIf="f.controls['email'].errors?.email">Please enter a valid email address.</div>
+    </div>
+  </div>
+
+  <div>
+    <label for="phone">Phone</label>
+    <input
+      type="text"
+      class="form-control"
+      id="phone"
+      name="phone"
+      [(ngModel)]="phone"
+      #phoneInput="ngModel"
+      required
+      placeholder="+123456789"
+    />
+    <div
+    *ngIf="
+      f.controls['phone'].invalid &&
+      (f.controls['phone'].dirty || f.controls['phone'].touched)
+    "
+  >
+    <div class="error" *ngIf="f.controls['phone'].errors?.required">
+      Please enter Phone Number
+    </div>
+  </div>
+  </div>
+
+  <!-- submit button -->
+  <button type="submit" [disabled]="f.invalid" class="btn btn-primary">Submit</button>
+</form>

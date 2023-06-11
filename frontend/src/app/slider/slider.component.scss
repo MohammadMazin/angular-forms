@@ -1,0 +1,31 @@
+/* custom property of border radius 0.5rem */
+$radius: 0.5rem;
+.container{
+    background-color: rgb(239, 230, 230);
+    width: max-content;
+    padding:3rem 4rem;
+    border-radius: $radius;
+}
+
+.buttons{
+    display: flex;
+    gap:2rem;
+    background-color: rgb(255, 255, 255);
+    padding:1rem;
+    border-radius: $radius;
+
+    button{
+        border: none;
+        background-color: rgb(255, 255, 255);
+        padding:0.5rem 1rem;
+        border-radius: $radius;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+
+        &:hover{
+            background-color: rgb(230, 239, 236);
+        }
+    }
+}
+
