@@ -23,7 +23,6 @@
     <div *ngIf="form.controls.phone.invalid && (form.controls.phone.dirty || form.controls.phone.touched)">
       <div class="error" *ngIf="form.controls.phone.errors?.required">phone is required.</div>
       <div class="error" *ngIf="form.controls.phone.errors?.pattern">Incorrect pattern</div>
-
     </div>
   </div>
 
